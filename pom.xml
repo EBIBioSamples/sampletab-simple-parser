@@ -1,0 +1,146 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>uk.ac.ebi.biosd</groupId>
+  <artifactId>sampletab-simple-parser</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <description>
+  	This is the STParser3 class extracted from the project https://github.com/EBIBioSamples/SampleTab-Loader and 
+  	made independent on the conversion to AGE (and the corresponding packages). This is more practical if one has to 
+  	do some other job with a SampleTAB instance. It's a provisional solution, a more advanced SampleTAB parser is 
+  	being developed. 
+  	
+  	Marco Brandizi.
+  </description>
+
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+	<dependencies>
+
+		<dependency>
+		  <groupId>uk.ac.ebi.mg</groupId>
+		  <artifactId>commons</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>	
+	
+    <dependency>
+	    <groupId>commons-lang</groupId>
+	    <artifactId>commons-lang</artifactId>
+	    <version>2.3</version>
+	    <scope>test</scope>
+    </dependency>
+	
+	
+		<!--  dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+    </dependency -->
+
+
+		<!-- TEST -->
+			
+	  <dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.8.2</version>
+	    <scope>test</scope>
+	  </dependency>
+
+		<!-- dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>0.9.29</version>
+	    <scope>test</scope>
+		</dependency -->
+
+	</dependencies>
+	
+	<build>
+		<plugins>
+		
+      <plugin>
+	      <artifactId>maven-compiler-plugin</artifactId>
+	      <configuration>
+	        <source>1.6</source>
+	        <target>1.6</target>
+	        <encoding>utf-8</encoding>
+	      </configuration>
+	    </plugin>
+	
+	    <!--  plugin>
+		    <artifactId>maven-source-plugin</artifactId>
+		    <executions>
+		      <execution>
+		        <id>attach-source</id>
+		        <goals>
+		          <goal>jar</goal>
+		        </goals>
+		      </execution>
+		    </executions>
+	    </plugin -->
+		
+    </plugins>
+	
+    <!-- testResources>
+	    <testResource>
+	      <directory>src/test/resources</directory>
+	      <filtering>true</filtering>
+	    </testResource>
+    </testResources>
+
+    <resources>
+	    <resource>
+	      <directory>src/main/resources</directory>
+	      <filtering>true</filtering>
+	    </resource>
+    </resources -->
+
+    <extensions>
+	    <extension>
+	      <groupId>org.apache.maven.wagon</groupId>
+	      <artifactId>wagon-ssh</artifactId>
+	      <version>1.0-beta-6</version>
+	    </extension>
+    </extensions>    
+
+	</build>
+	
+  <repositories>
+
+		<repository>
+			<id>ebi-repo</id>
+			<name>EBI repo</name>
+			<url>http://www.ebi.ac.uk/~maven/m2repo</url>
+		</repository>
+
+  </repositories>
+	
+	
+  <distributionManagement>
+
+	  <repository>
+		  <id>ebi-repo</id>
+		  <name>EBI Repository</name>
+		  <url>scp://parrot.ebi.ac.uk/homes/maven/public_html/m2repo</url>
+	  </repository>
+		
+	  <snapshotRepository>
+		  <uniqueVersion>false</uniqueVersion>
+		  <id>ebi-repo-snapshots</id>
+		  <name>EBI Snapshots Repository</name>
+		  <url>scp://parrot.ebi.ac.uk/homes/maven/public_html/m2repo_snapshots</url>
+	  </snapshotRepository>
+	
+  </distributionManagement>
+
+</project>
